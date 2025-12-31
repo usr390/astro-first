@@ -4,7 +4,23 @@ import Greeting from '../components/Greeting';
 
 const pageTitle = "Home Page";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  <section class="hero" aria-label="Kings Of The Road hero">
+    <div class="hero__inner">
+      <h2 class="hero__title">Kings Of The Road</h2>
+      <p class="hero__subtitle">
+        Comfortable, reliable charter bus tours across Texas and beyond — perfect for groups,
+        events, and day trips.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn" href="/contact">Get a Quote</a>
+        <a class="btn btn--ghost" href="/tours">View Tours</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- <h2>My awesome blog subtitle</h2>
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} /> -->
 </BaseLayout>
