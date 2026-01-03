@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Tours";
+---
+
+<BaseLayout pageTitle={pageTitle} lang="es">
+  <p>
+    A continuación se muestran nuestros próximos tours en autobús.
+    Comuníquese con nosotros para reservar su asiento.
+  </p>
+
+  <section class="tour">
+    <div class="tour__image">
+      <img
+        src="/tours/kickapoo-lucky-eagle-sept-6-2025.jpeg"
+        alt="Tour en autobús al Casino Kickapoo Lucky Eagle"
+      />
+    </div>
+
+    <div class="tour__info">
+      <h2>Casino Kickapoo Lucky Eagle – Viaje de un Día</h2>
+
+      <p>
+        Acompañe a Map’s Tour Buses y STX Tours en un emocionante viaje de un día
+        al Casino y Hotel Kickapoo Lucky Eagle.
+      </p>
+
+      <ul>
+        <li><strong>Fecha:</strong> Sábado, 6 de septiembre de 2025</li>
+        <li><strong>Precio:</strong> $65 por persona</li>
+        <li><strong>Edad mínima:</strong> 21 años o más</li>
+      </ul>
+
+      <h3>Lugares de Salida</h3>
+      <ul>
+        <li>
+          <strong>Walmart – Edinburg, TX</strong><br />
+          2812 S I-69C Frontage Rd<br />
+          Llegar a las 6:00 a.m. · Sale a las 6:15 a.m. en punto
+        </li>
+        <li>
+          <strong>Walmart – Alamo, TX</strong><br />
+          1421 E Frontage Rd<br />
+          Llegar a las 6:30 a.m. · Sale a las 6:45 a.m. en punto
+        </li>
+      </ul>
+
+      <p>
+        <strong>Regreso:</strong> El autobús sale del casino a las 11:45 p.m. en punto.
+      </p>
+
+      <p>
+        <strong>No hay reembolsos.</strong>
+      </p>
+
+      <h3>Reservaciones</h3>
+      <ul>
+        <li>Flor Perales — <a href="tel:+19568975416">(956) 897-5416</a></li>
+        <li>Fidencio Perales — <a href="tel:+19567809501">(956) 780-9501</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+   .tour {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tour__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.tour__info h2 {
+  margin-top: 0;
+}
+
+.tour__info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.tour__info ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tour {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+} 
+</style>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Inicio";
+---
+
+<BaseLayout pageTitle={pageTitle} lang="es">
+  <section class="hero" aria-label="Kings Of The Road hero">
+    <div class="hero__inner">
+      <h2 class="hero__title">Reyes del Camino</h2>
+      <p class="hero__subtitle">
+        Tours en autobús cómodos y confiables por todo Texas y más allá — ideales para
+        grupos, eventos y viajes de un día.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn" href="/es/contact">Solicitar Cotización</a>
+        <a class="btn btn--ghost" href="/es/tours">Ver Tours</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
