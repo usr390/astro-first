@@ -1,25 +1,98 @@
 ---
+import Logo from './Logo.astro';
 import Social from './Social.astro';
 ---
-<style>
-  footer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 2rem;
-    align-items: center;
-  }
 
-  .socials {
-    display: flex;
-    gap: 1rem;
-  }
-</style>
+<footer class="site-footer">
+    <!-- Logo section -->
+  <div class="footer-logo">
+    <Logo />
+  </div>
 
-<footer>
-  <h2>Follow Us</h2>
-  <div class="socials">
-    <Social platform="facebook" username="profile.php?id=61550318662353" />
-    <Social platform="instagram" username="mapstourbuses" />
+  <!-- Optional brand / trust text -->
+  <div class="footer-intro">
+    <p>
+      Our professional and caring team is here to make your trip easy and stress-free.
+      From the moment you board, we work for you — so you can relax and enjoy the ride.
+    </p>
+  </div>
+
+  <div class="footer-section">
+    <h2>Follow Us</h2>
+    <div class="socials">
+      <Social platform="facebook" username="profile.php?id=61550318662353" />
+      <Social platform="instagram" username="mapstourbuses" />
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © {new Date().getFullYear()} Map’s Tour Buses. All rights reserved.
+    </p>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+  margin-top: 4rem;
+  padding: 3.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers all blocks */
+  gap: 2.5rem;
+  text-align: center;    /* centers all text */
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional: constrain logo size */
+.footer-logo svg,
+.footer-logo img {
+  max-height: 70px;
+  width: auto;
+}
+
+.footer-intro {
+  max-width: 640px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-section h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-section p {
+  margin: 0.15rem 0;
+}
+
+.muted {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+</style>

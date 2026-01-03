@@ -159,3 +159,39 @@ html.dark {
   background: rgba(255,255,255,0.18);
   border: 1px solid rgba(255,255,255,0.35);
 }
+
+.faq {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 0 1rem;
+  display: grid;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.faq h2 {
+  margin-bottom: 0.5rem;
+}
+
+details {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  text-align: left;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details p {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
