@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const pageTitle = "Tours";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>
+    Below are our upcoming charter bus tours. Click or contact us to reserve your seat.
+  </p>
+
+  <section class="tour">
+    <div class="tour__image">
+      <img
+        src="/tours/kickapoo-lucky-eagle-sept-6-2025.jpeg"
+        alt="Kickapoo Lucky Eagle Casino day bus trip flyer"
+      />
+    </div>
+
+    <div class="tour__info">
+      <h2>Kickapoo Lucky Eagle Casino – Day Bus Trip</h2>
+
+      <p>
+        Join Map’s Tour Buses and STX Tours for a fun-filled day trip to
+        Kickapoo Lucky Eagle Casino & Hotel.
+      </p>
+
+      <ul>
+        <li><strong>Date:</strong> Saturday, September 6, 2025</li>
+        <li><strong>Price:</strong> $65 per person</li>
+        <li><strong>Age Requirement:</strong> Must be 21 or older</li>
+      </ul>
+
+      <h3>Pickup Locations</h3>
+      <ul>
+        <li>
+          <strong>Walmart – Edinburg, TX</strong><br />
+          2812 S I-69C Frontage Rd<br />
+          Arrive at 6:00 AM · Departs 6:15 AM sharp
+        </li>
+        <li>
+          <strong>Walmart – Alamo, TX</strong><br />
+          1421 E Frontage Rd<br />
+          Arrive at 6:30 AM · Departs 6:45 AM sharp
+        </li>
+      </ul>
+
+      <p>
+        <strong>Return:</strong> Bus departs the casino at 11:45 PM sharp.
+      </p>
+
+      <p>
+        <strong>No refunds.</strong>
+      </p>
+
+      <h3>Seat Reservations</h3>
+      <ul>
+        <li>Flor Perales — <a href="tel:+19568975416">(956) 897-5416</a></li>
+        <li>Fidencio Perales — <a href="tel:+19567809501">(956) 780-9501</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+   .tour {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tour__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.tour__info h2 {
+  margin-top: 0;
+}
+
+.tour__info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.tour__info ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tour {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+} 
+</style>

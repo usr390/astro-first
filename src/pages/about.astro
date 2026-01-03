@@ -2,38 +2,36 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 
-const pageTitle = "About Me";
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-const happy = true;
-const finished = true;
-const goal = 3;
+const pageTitle = "About Map’s Tour Buses";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-    <p>Here are a few facts about me:</p>
-    <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-    {identity.hobbies.length >= 2 &&
-        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-    }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    {happy && <p>I am happy to be learning Astro!</p>}
+  <p>
+    Map’s Tour Buses provides safe, comfortable, and reliable charter bus transportation
+    for groups traveling across Texas and into Mexico.
+  </p>
 
-    {finished && <p>I finished this tutorial!</p>}
+  <p>
+    Whether you're planning a day trip, a multi-day tour, or transportation for a special
+    event, our goal is to make every journey smooth, stress-free, and enjoyable.
+  </p>
 
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+  <p>
+    We pride ourselves on professional service, well-maintained vehicles, and experienced
+    drivers who know the roads and destinations throughout the region.
+  </p>
+
+  <p>Our services include:</p>
+
+  <ul>
+    <li>Charter bus tours throughout Texas</li>
+    <li>Group transportation to destinations in Mexico</li>
+    <li>Private tours for events, schools, and organizations</li>
+    <li>Comfortable buses designed for long-distance travel</li>
+  </ul>
+
+  <p>
+    At Map’s Tour Buses, we believe the journey should be just as enjoyable as the destination.
+    We look forward to being a part of your next adventure.
+  </p>
 </BaseLayout>

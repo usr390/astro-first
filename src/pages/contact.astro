@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const pageTitle = "Contact Map’s Tour Buses";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>
+    Have questions or need a quote for your next trip? Get in touch with us using the
+    contact information below. We’re happy to help you plan your journey.
+  </p>
+
+  <h2>Phone</h2>
+  <ul class="contact-list">
+    <li>
+      <a href="tel:+19568975416">(956) 780-9501</a> - Flor Perales
+    </li>
+    <li>
+      <a href="tel:+19567809501">(956) 780-9502</a> - Fidiencio Perales
+    </li>
+  </ul>
+
+  <h2>Email</h2>
+  <p>
+    <a href="mailto:mapstourbusesllc@gmail.com">
+      mapstourbusesllc@gmail.com
+    </a>
+  </p>
+</BaseLayout>
