@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from '../components/Greeting';
 import Faq from '../components/Faq.astro';
 import WhereWeTravel from '../components/WhereWeTravel.astro';
 
-const pageTitle = "Home Page";
+const pageTitle = "";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -12,7 +11,7 @@ const pageTitle = "Home Page";
     <div class="hero__inner">
       <h2 class="hero__title">Kings Of The Road</h2>
       <p class="hero__subtitle">
-        Comfortable, reliable charter bus tours across Texas and beyond — perfect for groups,
+        Comfortable, reliable charter bus tours across Texas and beyond. Perfect for groups,
         events, and day trips.
       </p>
 
@@ -23,10 +22,7 @@ const pageTitle = "Home Page";
     </div>
   </section>
 
-  <!-- <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} /> -->
-  <Faq />
   <WhereWeTravel />
-
+  <Faq />
 
 </BaseLayout>

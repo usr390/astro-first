@@ -22,6 +22,7 @@ const { pageTitle, lang = "en" } = Astro.props;
 	</head>
 	<body>
 		<Header />
+		<h1>{pageTitle}</h1>
         <slot />
 		<Footer />
 		<script>
