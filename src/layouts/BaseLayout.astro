@@ -21,13 +21,13 @@ const { pageTitle, lang = "en" } = Astro.props;
 		<title>Astro</title>
 	</head>
 	<body>
-		<Header />
-		<h1>{pageTitle}</h1>
-        <slot />
-		<Footer />
-		<script>
-    		import "../scripts/menu.js";
-		</script>
+		<Header lang={lang} />
+		{pageTitle && <h1>{pageTitle}</h1>}
+		<slot />
+		<Footer lang={lang} />
 
+		<script>
+		import "../scripts/menu.js";
+		</script>
 	</body>
 </html>

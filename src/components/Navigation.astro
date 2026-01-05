@@ -1,13 +1,19 @@
 ---
 const pathname = Astro.url.pathname;
 
-// If you're already in /es, switch back to English
-const isSpanish = pathname.startsWith("/es/");
-const spanishPath = isSpanish ? pathname : `/es${pathname}`;
-const englishPath = isSpanish ? pathname.replace(/^\/es/, "") : pathname;
+// Detect language
+const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
 
-// Make sure root becomes "/"
-const normalizedEnglish = englishPath === "" ? "/" : englishPath;
+// Build target paths
+const englishPath = isSpanish
+  ? pathname.replace(/^\/es/, "") || "/"
+  : pathname;
+
+const spanishPath = isSpanish
+  ? pathname
+  : pathname === "/"
+    ? "/es"
+    : `/es${pathname}`;
 ---
 
 <div id="main-menu" class="nav-links">
@@ -17,9 +23,7 @@ const normalizedEnglish = englishPath === "" ? "/" : englishPath;
   <a href={isSpanish ? "/es/contact" : "/contact"}>Contact Us</a>
   <a href={isSpanish ? "/es/faq" : "/faq"}>FAQ</a>
 
-  {isSpanish ? (
-    <a href={normalizedEnglish}>English</a>
-  ) : (
-    <a href={spanishPath}>En Español</a>
-  )}
+  <a href={isSpanish ? englishPath : spanishPath}>
+    {isSpanish ? "English" : "En Español"}
+  </a>
 </div>

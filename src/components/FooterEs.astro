@@ -76,3 +76,212 @@ import Social from './Social.astro';
     </p>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    padding: 3.5rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo svg,
+  .footer-logo img {
+    max-height: 70px;
+    width: auto;
+  }
+
+  .footer-intro {
+    max-width: 640px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+
+  /* Phone cards */
+  .phone-list {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .phone-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    gap: 0.35rem;
+  }
+
+  .phone-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .phone-number {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .phone-name {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  .phone-card:hover .phone-icon,
+  .phone-card:hover .phone-number {
+    color: var(--color-accent);
+  }
+
+  .phone-card:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+</style>
+
+<style>
+  .site-footer {
+  margin-top: 4rem;
+  padding: 3.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers all blocks */
+  gap: 2.5rem;
+  text-align: center;    /* centers all text */
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional: constrain logo size */
+.footer-logo svg,
+.footer-logo img {
+  max-height: 70px;
+  width: auto;
+}
+
+.footer-intro {
+  max-width: 640px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-section h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-section p {
+  margin: 0.15rem 0;
+}
+
+.muted {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.phone-list {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.phone-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 0.35rem;
+}
+
+.phone-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.phone-number {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.phone-name {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.phone-card:hover .phone-icon,
+.phone-card:hover .phone-number {
+  color: var(--color-accent);
+}
+
+.phone-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+</style>
