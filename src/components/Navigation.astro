@@ -1,29 +1,36 @@
 ---
 const pathname = Astro.url.pathname;
 
-// Detect language
+// Detect language from URL
 const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
 
 // Build target paths
-const englishPath = isSpanish
-  ? pathname.replace(/^\/es/, "") || "/"
-  : pathname;
-
-const spanishPath = isSpanish
-  ? pathname
-  : pathname === "/"
-    ? "/es"
-    : `/es${pathname}`;
+const englishPath = isSpanish ? pathname.replace(/^\/es/, "") || "/" : pathname;
+const spanishPath = isSpanish ? pathname : pathname === "/" ? "/es" : `/es${pathname}`;
 ---
 
 <div id="main-menu" class="nav-links">
-  <a href={isSpanish ? "/es/" : "/"}>Home</a>
-  <a href={isSpanish ? "/es/tours" : "/tours"}>Tours</a>
-  <a href={isSpanish ? "/es/about" : "/about"}>About Us</a>
-  <a href={isSpanish ? "/es/contact" : "/contact"}>Contact Us</a>
-  <a href={isSpanish ? "/es/faq" : "/faq"}>FAQ</a>
+  <a href={isSpanish ? "/es/" : "/"}>
+    {isSpanish ? "Inicio" : "Home"}
+  </a>
+
+  <a href={isSpanish ? "/es/tours" : "/tours"}>
+    {isSpanish ? "Tours" : "Tours"}
+  </a>
+
+  <a href={isSpanish ? "/es/about" : "/about"}>
+    {isSpanish ? "Sobre Nosotros" : "About"}
+  </a>
+
+  <a href={isSpanish ? "/es/contact" : "/contact"}>
+    {isSpanish ? "Contacto" : "Contact"}
+  </a>
+
+  <a href={isSpanish ? "/es/faq" : "/faq"}>
+    {isSpanish ? "Preguntas Frecuentes" : "FAQ"}
+  </a>
 
   <a href={isSpanish ? englishPath : spanishPath}>
-    {isSpanish ? "English" : "En Español"}
+    {isSpanish ? "English" : "Español"}
   </a>
 </div>

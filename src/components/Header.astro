@@ -2,7 +2,9 @@
 import Navigation from './Navigation.astro';
 import Menu from './Menu.astro';
 import Logo from './Logo.astro'
-import Phone from './Phone.astro'
+
+const { lang = "en" } = Astro.props;
+
 
 ---
 <header>
@@ -13,7 +15,7 @@ import Phone from './Phone.astro'
       <Menu />
     </div>
     <br>
-    <Navigation />
+    <Navigation lang={lang} />
   </nav>
 </header>
 

@@ -1,49 +1,63 @@
+---
+import { faqEs } from "../data/faq.es";
+import type { FaqItem } from "../types/faq";
+
+const { items = faqEs } = Astro.props;
+---
 <section class="faq">
-  <details open>
-    <summary class="faq__question">
-      ¿Cómo reservo un tour o aparto un asiento?
-    </summary>
-    <p>
-      Llámenos o envíenos un correo con los detalles de su viaje y le ayudaremos con
-      disponibilidad, precio y próximos pasos.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      ¿Qué áreas cubren?
-    </summary>
-    <p>
-      Ofrecemos transporte charter por todo Texas y a destinos seleccionados en México.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      ¿Cuánto cuesta un tour o un charter?
-    </summary>
-    <p>
-      El precio depende del destino, la duración del viaje y la cantidad de pasajeros.
-      Contáctenos para una cotización.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      ¿Hay reembolsos?
-    </summary>
-    <p>
-      La política de reembolso varía según el tour. Algunos viajes pueden ser no reembolsables,
-      tal como se indica en el flyer.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      ¿Con cuánta anticipación debo llegar?
-    </summary>
-    <p>
-      Recomendamos llegar 10–15 minutos antes. Las salidas suelen ser “en punto”.
-    </p>
-  </details>
+  <h1>Preguntas Frecuentes</h1>
+  {items.map((item: FaqItem) => (
+    <details open={item.open}>
+      <summary class="faq__question">{item.q}</summary>
+      <p>{item.a}</p>
+    </details>
+  ))}
 </section>
+
+<style>
+/* =========================
+  FAQ
+========================= */
+.faq {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.faq details {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  text-align: left;
+  margin: 0; /* avoids double spacing since grid gap handles it */
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question {
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.faq__question:hover {
+  color: var(--color-accent);
+}
+
+.faq p {
+  margin: 0.75rem 0 0;
+  line-height: 1.6;
+}
+</style>

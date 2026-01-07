@@ -1,0 +1,15 @@
+---
+const {
+  brand,
+  rights,
+  year = new Date().getFullYear(),
+} = Astro.props as {
+  brand: string;
+  rights: string;
+  year?: number;
+};
+---
+
+<div class="footer-bottom">
+  <p>© {year} {brand}. {rights}</p>
+</div>

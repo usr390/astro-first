@@ -1,0 +1,69 @@
+---
+import PhoneIcon from "./PhoneIcon.astro";
+
+type Contact = {
+  name: string;
+  tel: string;     // like "+1956..."
+  display: string; // like "(956) ..."
+};
+
+const { title, people, ariaLabel } = Astro.props as {
+  title: string;
+  people: readonly Contact[];
+  ariaLabel: (name: string) => string;
+};
+---
+
+<div class="footer-section">
+  <h2>{title}</h2>
+
+  <div class="phone-list">
+    {people.map((p) => (
+      <a href={`tel:${p.tel}`} class="phone-card" aria-label={ariaLabel(p.name)}>
+
+        <PhoneIcon/>
+        <span class="phone-number">{p.display}</span>
+        <span class="phone-name">{p.name}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+.phone-list {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.phone-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 0.35rem;
+}
+
+.phone-number {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.phone-name {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.phone-card:hover,
+.phone-card:hover .phone-number {
+  color: var(--color-accent);
+}
+
+.phone-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+</style>

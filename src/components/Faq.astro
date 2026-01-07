@@ -1,49 +1,64 @@
+---
+import { faqEn } from "../data/faq.en";
+import type { FaqItem } from "../types/faq";
+
+const { items = faqEn } = Astro.props;
+---
+
 <section class="faq">
-  <details open>
-    <summary class="faq__question">
-      How do I book a charter or reserve a seat?
-    </summary>
-    <p>
-      Call or email us with your trip details and we’ll help you with availability,
-      pricing, and next steps.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      What areas do you serve?
-    </summary>
-    <p>
-      We provide charter bus transportation throughout Texas and to select
-      destinations in Mexico.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      How much does a tour or charter cost?
-    </summary>
-    <p>
-      Pricing depends on the destination, length of the trip, and number of passengers.
-      Contact us for a quote.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      Are refunds available?
-    </summary>
-    <p>
-      Refund policies vary by tour. Some trips may be non-refundable as stated on the flyer.
-    </p>
-  </details>
-
-  <details>
-    <summary class="faq__question">
-      How early should I arrive before departure?
-    </summary>
-    <p>
-      We recommend arriving 10–15 minutes early. Departure times are typically “sharp.”
-    </p>
-  </details>
+  <h1></h1>
+  {items.map((item: FaqItem) => (
+    <details open={item.open}>
+      <summary class="faq__question">{item.q}</summary>
+      <p>{item.a}</p>
+    </details>
+  ))}
 </section>
+
+<style>
+/* =========================
+  FAQ
+========================= */
+.faq {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.faq details {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  text-align: left;
+  margin: 0; /* avoids double spacing since grid gap handles it */
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question {
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.faq__question:hover {
+  color: var(--color-accent);
+}
+
+.faq p {
+  margin: 0.75rem 0 0;
+  line-height: 1.6;
+}
+</style>

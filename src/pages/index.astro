@@ -2,8 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Faq from '../components/Faq.astro';
 import WhereWeTravel from '../components/WhereWeTravel.astro';
+import { faqEn } from "../data/faq.en";
 
-const pageTitle = "";
+
+const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle} lang="en">
@@ -21,8 +23,8 @@ const pageTitle = "";
       </div>
     </div>
   </section>
-
+  
   <WhereWeTravel />
-  <Faq />
+  <Faq items={faqEn} />
 
 </BaseLayout>

@@ -1,0 +1,29 @@
+---
+const pathname = Astro.url.pathname;
+
+// Detect language
+const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
+
+// Build target paths
+const englishPath = isSpanish
+  ? pathname.replace(/^\/es/, "") || "/"
+  : pathname;
+
+const spanishPath = isSpanish
+  ? pathname
+  : pathname === "/"
+    ? "/es"
+    : `/es${pathname}`;
+---
+
+<div id="main-menu" class="nav-links">
+  <a href={isSpanish ? "/es/" : "/"}>Inicio</a>
+  <a href={isSpanish ? "/es/tours" : "/tours"}>Tours</a>
+  <a href={isSpanish ? "/es/about" : "/about"}>Sobre Nosotros</a>
+  <a href={isSpanish ? "/es/contact" : "/contact"}>Contacto</a>
+  <a href={isSpanish ? "/es/faq" : "/faq"}>Preguntas Frecuentes</a>
+
+  <a href={isSpanish ? englishPath : spanishPath}>
+    {isSpanish ? "English" : "Español"}
+  </a>
+</div>

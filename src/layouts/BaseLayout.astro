@@ -18,11 +18,10 @@ const { pageTitle, lang = "en" } = Astro.props;
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
-		<title>Astro</title>
+		<title>Map's Tour Buses - {pageTitle}</title>
 	</head>
 	<body>
 		<Header lang={lang} />
-		{pageTitle && <h1>{pageTitle}</h1>}
 		<slot />
 		<Footer lang={lang} />
 

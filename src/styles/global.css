@@ -1,8 +1,17 @@
+/* =========================
+   Theme tokens
+========================= */
 :root {
   --color-primary: #001b4c; /* headers, section titles */
   --color-accent: #622a50;  /* hover / accent */
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* =========================
+   Base / reset
+========================= */
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -18,10 +27,7 @@ body {
   line-height: 1.5;
   font-family: var(--font-sans);
   color: #111;
-}
-
-* {
-  box-sizing: border-box;
+  text-align: center
 }
 
 h1 {
@@ -29,6 +35,28 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.section-title {
+  color: var(--color-primary);
+}
+
+/* Links */
+a,
+.clickable-title {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+.clickable-title:hover {
+  color: var(--color-accent);
+}
+
+/* =========================
+   Nav / menu
+========================= */
 .menu {
   background-color: #0d0950;
   border: none;
@@ -37,8 +65,6 @@ h1 {
   font-weight: bold;
   padding: 5px 10px;
 }
-
-/* nav styles */
 
 .nav-links {
   width: 100%;
@@ -62,6 +88,7 @@ h1 {
   background-color: #ff9776;
 }
 
+/* Toggle menu open */
 :has(.menu[aria-expanded="true"]) .nav-links {
   display: unset;
 }
@@ -80,11 +107,14 @@ h1 {
     padding: 15px 20px;
   }
 
-    .menu {
+  .menu {
     display: none;
   }
 }
 
+/* =========================
+   Dark mode
+========================= */
 html.dark {
   background-color: #0d0950;
   color: #fff;
@@ -95,21 +125,23 @@ html.dark {
   color: #000;
 }
 
+.dark .nav-links a {
+  color: #fff;
+}
+
 .dark .nav-links a:hover,
 .dark .nav-links a:focus {
   color: #0d0950;
-}
-
-.dark .nav-links a {
-  color: #fff;
 }
 
 .dark a {
   color: #ff9776;
 }
 
+/* =========================
+   Hero
+========================= */
 .hero {
-  /* Image + overlay for readability (overlay does NOT fade text) */
   background-image:
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url("/public/hero-bus.png");
@@ -120,7 +152,6 @@ html.dark {
   border-radius: 24px;
   padding: clamp(2rem, 5vw, 4rem);
   margin: 1.5rem auto 2rem;
-
   max-width: 1100px;
 }
 
@@ -161,109 +192,4 @@ html.dark {
 .btn--ghost {
   background: rgba(255,255,255,0.18);
   border: 1px solid rgba(255,255,255,0.35);
-}
-
-.faq {
-  max-width: 900px;
-  margin: 3rem auto 0;
-  padding: 0 1rem;
-  display: grid;
-  gap: 0.75rem;
-  text-align: center;
-}
-
-.faq h2 {
-  margin-bottom: 0.5rem;
-}
-
-details {
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 14px;
-  padding: 0.75rem 1rem;
-  background: #fff;
-  text-align: left;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: 700;
-  list-style: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-details p {
-  margin-top: 0.75rem;
-  line-height: 1.6;
-}
-
-:root {
-  --color-primary: #001b4c; /* headers, section titles */
-  --color-accent: #622a50;  /* hover / accent */
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6,
-.section-title {
-  color: var(--color-primary);
-}
-
-/* Clickable headers / links */
-a,
-.clickable-title {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover,
-.clickable-title:hover {
-  color: var(--color-accent);
-}
-
-/* FAQ layout */
-.faq {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-}
-
-.faq h2 {
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-}
-
-/* Details spacing */
-.faq details {
-  margin-bottom: 1rem;
-}
-
-/* Question styling */
-.faq__question {
-  color: var(--color-primary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-/* Hover accent */
-.faq__question:hover {
-  color: var(--color-accent);
-}
-
-/* Answer text */
-.faq p {
-  margin: 0.75rem 0 0 0;
-  line-height: 1.6;
-}
-
-/* Optional: remove default marker */
-.faq summary {
-  list-style: none;
-}
-
-.faq summary::-webkit-details-marker {
-  display: none;
 }
