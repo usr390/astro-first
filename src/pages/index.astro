@@ -1,30 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Faq from '../components/Faq.astro';
-import WhereWeTravel from '../components/WhereWeTravel.astro';
-import { faqEn } from "../data/faq.en";
+import Hero from '../components/Hero.astro';
+import ReviewsSection from "../components/ReviewSection.astro";
+import { reviewsEn } from "../data/reviews.en";
+import { faqEn, faqTitleEn } from "../data/faq.en";
+import WhereWeTravel from "../components/WhereWeTravel.astro";
+import { whereWeTravelEn } from "../data/whereWeTravel.en";
+
 
 
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle} lang="en">
-  <section class="hero" aria-label="Kings Of The Road hero">
-    <div class="hero__inner">
-      <h2 class="hero__title">Kings Of The Road</h2>
-      <p class="hero__subtitle">
-        Comfortable, reliable charter bus tours across Texas and beyond. Perfect for groups,
-        events, and day trips.
-      </p>
-
-      <div class="hero__actions">
-        <a class="btn" href="/contact">Get a Quote</a>
-        <a class="btn btn--ghost" href="/tours">View Tours</a>
-      </div>
-    </div>
-  </section>
-  
-  <WhereWeTravel />
-  <Faq items={faqEn} />
-
+  <Hero lang="en" />
+  <WhereWeTravel content={whereWeTravelEn} />
+  <Faq title={faqTitleEn} items={faqEn} />  
+  <ReviewsSection lang="en" items={reviewsEn} />
 </BaseLayout>

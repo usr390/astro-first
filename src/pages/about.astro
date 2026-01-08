@@ -1,6 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
+import PerksSection from "../components/PerksSection.astro";
+import { perksEn } from "../data/perks.en";
+import StatementSection from "../components/StatementSection.astro";
+import { statementEn } from "../data/mission.en";
+import ReviewSection from '../components/ReviewSection.astro';
+import { reviewsEn } from "../data/reviews.en";
+import GallerySection from "../components/GallerySection.astro";
+import { aboutGalleryEn } from "../data/gallery.en";
+
 
 const pageTitle = "About";
 ---
@@ -13,26 +22,18 @@ const pageTitle = "About";
   </p>
 
   <p>
-    Whether you're planning a day trip, a multi-day tour, or transportation for a special
-    event, our goal is to make every journey smooth, stress-free, and enjoyable.
-  </p>
-
-  <p>
     We pride ourselves on professional service, well-maintained vehicles, and experienced
     drivers who know the roads and destinations throughout the region.
   </p>
-
-  <p>Our services include:</p>
-
-  <ul>
-    <li>Charter bus tours throughout Texas</li>
-    <li>Group transportation to destinations in Mexico</li>
-    <li>Private tours for events, schools, and organizations</li>
-    <li>Comfortable buses designed for long-distance travel</li>
-  </ul>
 
   <p>
     At Map’s Tour Buses, we believe the journey should be just as enjoyable as the destination.
     We look forward to being a part of your next adventure.
   </p>
+
+  <GallerySection ariaLabel="Photo gallery" items={aboutGalleryEn} />
+  <PerksSection lang="en" items={perksEn} />
+  <StatementSection title={statementEn.title} text={statementEn.text} />
+  <ReviewSection lang="en" items={reviewsEn}/>
+
 </BaseLayout>

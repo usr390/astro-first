@@ -1,0 +1,50 @@
+---
+import type { GalleryImage } from "../types/gallery";
+
+const {
+  ariaLabel = "Gallery",
+  items = [],
+  maxWidth = "900px",
+} = Astro.props as {
+  ariaLabel?: string;
+  items?: readonly GalleryImage[];
+  maxWidth?: string;
+};
+---
+
+<section class="gallery" aria-label={ariaLabel} style={`--gallery-max-width:${maxWidth};`}>
+  {items.map((img) => (
+    <figure class="gallery__item">
+      <img
+        src={img.src}
+        alt={img.alt}
+        loading={img.loading ?? "lazy"}
+      />
+    </figure>
+  ))}
+</section>
+
+<style>
+.gallery {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.gallery__item {
+  margin: 0 auto;
+  max-width: var(--gallery-max-width);
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.1);
+}
+
+.gallery__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+</style>

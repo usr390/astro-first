@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import FaqEs from '../../components/FaqEs.astro';
-import { faqEs } from "../../data/faq.es";
+import FaqSection from '../../components/Faq.astro';
+import { faqEs, faqTitleEs } from "../../data/faq.es";
+
 
 const pageTitle = "Preguntas Frecuentes";
 ---
 
 <BaseLayout pageTitle={pageTitle} lang="es">
-  <FaqEs items={faqEs} />
+  <FaqSection title={faqTitleEs} items={faqEs} />
 </BaseLayout>

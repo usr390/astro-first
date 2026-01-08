@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/Faq.astro';
+import { faqEn, faqTitleEn } from "../data/faq.en";
 
 const pageTitle = "Frequently Asked Questions";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h1>{pageTitle}</h1>
-  <!-- hero -->
-  <FaqSection />
+  <FaqSection title={faqTitleEn} items={faqEn} />  
 </BaseLayout>

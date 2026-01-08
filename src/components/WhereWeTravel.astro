@@ -1,87 +1,30 @@
-<section class="areas" aria-label="Where we travel">
+---
+import type { WhereWeTravelContent } from "../types/whereWeTravel";
+
+const { content } = Astro.props as { content: WhereWeTravelContent };
+---
+
+<section class="areas" aria-label={content.ariaLabel}>
   <header class="areas__header">
-    <h2>Where We Travel</h2>
-    <p>
-      We provide charter bus tours and group transportation across Texas and to select
-      destinations in Mexico.
-    </p>
+    <h2>{content.heading}</h2>
+    <p>{content.intro}</p>
   </header>
 
-  <!-- EAGLE PASS / CASINO TRIPS -->
-  <article class="area-card">
-    <img
-      class="area-card__img"
-      src="/lucky-eagle.jpeg"
-      alt="Kickapoo Lucky Eagle Casino Hotel in Eagle Pass, Texas"
-      loading="lazy"
-    />
+  {content.areas.map((a) => (
+    <article class="area-card">
+      <img class="area-card__img" src={a.imgSrc} alt={a.imgAlt} loading="lazy" />
 
-    <h3>Eagle Pass & Casino Trips</h3>
+      <h3>{a.title}</h3>
 
-    <p>
-      We regularly provide group transportation to Eagle Pass, Texas. Home of the
-      Kickapoo Lucky Eagle Casino Hotel. This is one of our most popular destinations,
-      offering a comfortable, stress-free way to enjoy casino trips without the hassle
-      of driving.
-    </p>
+      <p>{a.description}</p>
 
-    <p class="area-card__subhead">This route commonly includes:</p>
-    <ul>
-      <li>Kickapoo Lucky Eagle Casino Hotel</li>
-      <li>Day trips and overnight casino stays</li>
-      <li>Group pickups across the Rio Grande Valley</li>
-      <li>Coordinated departure and return times</li>
-    </ul>
-  </article>
+      <p class="area-card__subhead">{a.subhead}</p>
 
-  <!-- TEXAS -->
-  <article class="area-card">
-    <img
-      class="area-card__img"
-      src="/texas.jpeg"
-      alt="Scenic Texas highway"
-      loading="lazy"
-    />
-
-    <h3>Texas</h3>
-    <p>
-      From major cities to small towns, we make travel across Texas easy and comfortable.
-      Whether you’re planning a corporate event, a sports team trip, or a group tour, we’re
-      ready to get you there safely and hassle-free.
-    </p>
-
-    <p class="area-card__subhead">Popular destinations across Texas include:</p>
-    <ul>
-      <li>Houston, Austin, San Antonio, and Dallas</li>
-      <li>Day trips for events, concerts, and sporting games</li>
-      <li>Hill Country getaways and scenic weekend trips</li>
-      <li>Group travel for schools, churches, and organizations</li>
-    </ul>
-  </article>
-
-  <!-- MEXICO -->
-  <article class="area-card">
-    <img
-      class="area-card__img"
-      src="/monterrey.jpeg"
-      alt="Travel destinations in Mexico"
-      loading="lazy"
-    />
-
-    <h3>Mexico</h3>
-    <p>
-      We also offer charter trips to select destinations in Mexico. Our team can help you
-      coordinate a smooth, organized group trip with clear pickup times and reliable service.
-    </p>
-
-    <p class="area-card__subhead">Popular trips to Mexico may include:</p>
-    <ul>
-      <li>Group tours and special events</li>
-      <li>Family trips and weekend travel</li>
-      <li>Coordinated pickups from the Rio Grande Valley</li>
-      <li>Custom itineraries based on your group’s needs</li>
-    </ul>
-  </article>
+      <ul>
+        {a.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </article>
+  ))}
 </section>
 
 <style>

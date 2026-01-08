@@ -1,5 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PerksSection from "../../components/PerksSection.astro";
+import { perksEs } from "../../data/perks.es";
+import StatementSection from "../../components/StatementSection.astro";
+import { statementEs } from "../../data/mission.es";
+import ReviewSection from '../../components/ReviewSection.astro';
+import { reviewsEs } from "../../data/reviews.es";
+import GallerySection from "../../components/GallerySection.astro";
+import { aboutGalleryEs } from "../../data/gallery.es";
+
 
 const pageTitle = "Sobre Nosotros";
 ---
@@ -12,26 +21,17 @@ const pageTitle = "Sobre Nosotros";
   </p>
 
   <p>
-    Ya sea que esté planeando un viaje de un día, un tour de varios días o transporte para
-    un evento especial, nuestro objetivo es que cada viaje sea tranquilo, seguro y agradable.
-  </p>
-
-  <p>
     Nos enorgullece brindar un servicio profesional, autobuses bien mantenidos y conductores
     con experiencia que conocen perfectamente las rutas y destinos de la región.
   </p>
-
-  <p>Nuestros servicios incluyen:</p>
-
-  <ul>
-    <li>Tours en autobús por todo Texas</li>
-    <li>Transporte grupal a destinos en México</li>
-    <li>Tours privados para eventos, escuelas y organizaciones</li>
-    <li>Autobuses cómodos diseñados para viajes largos</li>
-  </ul>
 
   <p>
     En Map’s Tour Buses creemos que el viaje debe ser tan agradable como el destino.
     Esperamos ser parte de su próxima aventura.
   </p>
+
+  <GallerySection ariaLabel="Galería de fotos" items={aboutGalleryEs} />
+  <PerksSection lang="es" items={perksEs} />
+  <StatementSection title={statementEs.title} text={statementEs.text} />
+  <ReviewSection lang="es" items={reviewsEs}/>
 </BaseLayout>

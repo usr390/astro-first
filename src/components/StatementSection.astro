@@ -1,0 +1,38 @@
+---
+const {
+  title,
+  text,
+} = Astro.props as {
+  title: string;
+  text: string;
+};
+---
+
+<section class="statement" aria-label={title}>
+  <h2 class="statement__title">{title}</h2>
+  <p class="statement__text">{text}</p>
+</section>
+
+<style>
+.statement {
+  max-width: 900px;
+  margin: 3.5rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.statement__title {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.statement__text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 70ch;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+</style>

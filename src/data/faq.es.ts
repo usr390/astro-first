@@ -23,3 +23,5 @@ export const faqEs: readonly FaqItem[] = [
     a: "Recomendamos llegar 10–15 minutos antes. Las salidas suelen ser “en punto”.",
   },
 ] as const;
+
+export const faqTitleEs = "Preguntas Frecuentes";

@@ -1,13 +1,19 @@
 ---
-import { faqEn } from "../data/faq.en";
 import type { FaqItem } from "../types/faq";
 
-const { items = faqEn } = Astro.props;
+const {
+  title,
+  items = [],
+} = Astro.props as {
+  title: string;
+  items: readonly FaqItem[];
+};
 ---
 
-<section class="faq">
-  <h1></h1>
-  {items.map((item: FaqItem) => (
+<section class="faq" aria-label={title}>
+  <h1 class="faq__title">{title}</h1>
+
+  {items.map((item) => (
     <details open={item.open}>
       <summary class="faq__question">{item.q}</summary>
       <p>{item.a}</p>
@@ -16,9 +22,6 @@ const { items = faqEn } = Astro.props;
 </section>
 
 <style>
-/* =========================
-  FAQ
-========================= */
 .faq {
   max-width: 800px;
   margin: 3rem auto;
@@ -28,13 +31,18 @@ const { items = faqEn } = Astro.props;
   text-align: center;
 }
 
+.faq__title {
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+}
+
 .faq details {
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 14px;
   padding: 0.75rem 1rem;
   background: #fff;
   text-align: left;
-  margin: 0; /* avoids double spacing since grid gap handles it */
+  margin: 0;
 }
 
 .faq summary {

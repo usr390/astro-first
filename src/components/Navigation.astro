@@ -1,36 +1,40 @@
 ---
+import { navItems, navLabels } from "../site/mapstourbuses.nav";
+
 const pathname = Astro.url.pathname;
 
-// Detect language from URL
+// Detect language
 const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
+const lang = isSpanish ? "es" : "en";
 
 // Build target paths
-const englishPath = isSpanish ? pathname.replace(/^\/es/, "") || "/" : pathname;
-const spanishPath = isSpanish ? pathname : pathname === "/" ? "/es" : `/es${pathname}`;
+const englishPath = isSpanish
+  ? pathname.replace(/^\/es/, "") || "/"
+  : pathname;
+
+const spanishPath = isSpanish
+  ? pathname
+  : pathname === "/"
+    ? "/es"
+    : `/es${pathname}`;
+
+const labels = navLabels[lang];
 ---
 
 <div id="main-menu" class="nav-links">
-  <a href={isSpanish ? "/es/" : "/"}>
-    {isSpanish ? "Inicio" : "Home"}
-  </a>
+  {navItems.map((item) => {
+    const href = isSpanish
+      ? item.path === "/" ? "/es/" : `/es${item.path}`
+      : item.path;
 
-  <a href={isSpanish ? "/es/tours" : "/tours"}>
-    {isSpanish ? "Tours" : "Tours"}
-  </a>
-
-  <a href={isSpanish ? "/es/about" : "/about"}>
-    {isSpanish ? "Sobre Nosotros" : "About"}
-  </a>
-
-  <a href={isSpanish ? "/es/contact" : "/contact"}>
-    {isSpanish ? "Contacto" : "Contact"}
-  </a>
-
-  <a href={isSpanish ? "/es/faq" : "/faq"}>
-    {isSpanish ? "Preguntas Frecuentes" : "FAQ"}
-  </a>
+    return (
+      <a href={href}>
+        {labels[item.key as keyof typeof labels]}
+      </a>
+    );
+  })}
 
   <a href={isSpanish ? englishPath : spanishPath}>
-    {isSpanish ? "English" : "Español"}
+    {labels.switch}
   </a>
 </div>

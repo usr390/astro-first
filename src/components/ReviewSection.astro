@@ -1,0 +1,153 @@
+---
+import type { Review } from "../types/review";
+import { reviewsEn } from "../data/reviews.en";
+
+type Lang = "en" | "es";
+
+const {
+  lang = "en",
+  title,
+  subtitle,
+  items = reviewsEn,
+} = Astro.props as {
+  lang?: Lang;
+  title?: string;
+  subtitle?: string;
+  items?: readonly Review[];
+};
+
+const defaultTitle = lang === "es" ? "Reseñas" : "Reviews";
+const defaultSubtitle =
+  lang === "es"
+    ? "Vea lo que la gente dice de nosotros."
+    : "See what people say about us.";
+
+const finalTitle = title ?? defaultTitle;
+const finalSubtitle = subtitle ?? defaultSubtitle;
+
+const stars = (rating: number) => "★★★★★".slice(0, rating);
+---
+
+<section class="reviews" aria-label={finalTitle}>
+  <header class="reviews__header">
+    <h2 class="reviews__title">{finalTitle}</h2>
+    <p class="reviews__subtitle">{finalSubtitle}</p>
+  </header>
+
+  <div class="reviews__grid">
+    {items.map((r) => (
+      <article class="review-card">
+        <div class="review-card__top">
+          {typeof r.rating === "number" && (
+            <div class="review-card__stars" aria-label={`${r.rating} out of 5`}>
+              <span aria-hidden="true">{stars(r.rating)}</span>
+            </div>
+          )}
+
+          {r.source && <span class="review-card__source">{r.source}</span>}
+        </div>
+
+        <p class="review-card__quote">“{r.quote}”</p>
+
+        <div class="review-card__footer">
+          <span class="review-card__name">{r.name}</span>
+          {r.date && <span class="review-card__date">{r.date}</span>}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+.reviews {
+  max-width: 1100px;
+  margin: 3.5rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.reviews__header {
+  margin-bottom: 1.5rem;
+}
+
+.reviews__title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+
+.reviews__subtitle {
+  margin: 0;
+  opacity: 0.85;
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+.reviews__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .reviews__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 16px;
+  padding: 1.25rem 1.1rem;
+  text-align: left;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+}
+
+.review-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.review-card__stars {
+  color: var(--color-accent);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+}
+
+.review-card__source {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.review-card__quote {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.review-card__footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.review-card__name {
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.review-card__date {
+  font-size: 0.85rem;
+  opacity: 0.65;
+}
+</style>

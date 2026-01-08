@@ -23,3 +23,5 @@ export const faqEn: readonly FaqItem[] = [
     a: "We recommend arriving 10–15 minutes early. Departure times are typically “sharp.”",
   }
 ] as const;
+
+export const faqTitleEn = "FAQ";

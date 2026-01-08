@@ -4,8 +4,6 @@ import Menu from './Menu.astro';
 import Logo from './Logo.astro'
 
 const { lang = "en" } = Astro.props;
-
-
 ---
 <header>
   <nav>
@@ -23,21 +21,8 @@ const { lang = "en" } = Astro.props;
   div {
     display: flex;
     justify-content: space-between;
-  }
-
-  .phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: inherit;
-    font-weight: 700;
-  }
-
-  .phone svg {
-    width: 28px;
-    height: 28px;
-    fill: currentColor;
-    display: block;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 </style>
